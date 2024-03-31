@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,7 +19,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
 }
-
+ 
 app.UseHttpsRedirection();
 
 app.UseRouting();
@@ -27,5 +29,6 @@ app.UseAuthorization();
 
 
 app.MapControllers();
+//app.MapHealthChecks("/health",new HealthCheckOptions() );
 
 app.Run();
